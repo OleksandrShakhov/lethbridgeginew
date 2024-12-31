@@ -1,6 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export function Footer() {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    // Set the current year when the component is mounted
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer
       className="bg-[linear-gradient(135deg,rgb(10,154,180)_0%,rgb(1,61,71)_100%)] text-white py-8"
@@ -10,10 +19,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Footer Section 1 - Logo */}
           <div className="flex justify-center md:justify-start">
-          <img
-            src="assets/SIX08-GI-logo-lt.png"
-            alt="Six08 Gastroenterology Logo"
-            style={{ width: '180px', height: '96px', objectFit: 'contain' }}
+            <img
+              src="assets/SIX08-GI-logo-lt.png"
+              alt="Six08 Gastroenterology Logo"
+              style={{ width: '180px', height: '96px', objectFit: 'contain' }}
             />
           </div>
 
@@ -91,7 +100,7 @@ export function Footer() {
       <div className="mt-8">
         <div className="max-w-screen-xl mx-auto px-4 text-center">
           <p>
-            Copyright © 2024 Six08 Gastroenterology | Website by{" "}
+            Copyright © {currentYear} Six08 Gastroenterology | Website by{" "}
             <a
               href="https://www.chinookit.com"
               target="_blank"
